@@ -7,7 +7,7 @@
 <meta name="description" content="SAWA is a half-day, Dagstuhl-style Barstuhl workshop at ISWC 2026 in Bari, bringing the Multi-Agent Systems, Semantic Web Services, and Agentic AI communities together around affordance-based approaches to agent and service discovery.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="SAWA 2026: Semantic Affordances for the Web of Agents">
-<meta property="og:description" content="A half-day Barstuhl workshop at ISWC 2026, Monday 26 October, Bari. Lightning talk proposals close Wednesday 21 October.">
+<meta property="og:description" content="A half-day Barstuhl workshop at ISWC 2026, Monday 26 October, Bari. Lightning talk proposals close Thursday 22 October.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='14' fill='%232C4372'/%3E%3Ccircle cx='18' cy='20' r='9' fill='%2396691E'/%3E%3Ccircle cx='82' cy='20' r='9' fill='%2396691E'/%3E%3Ccircle cx='18' cy='80' r='9' fill='%2396691E'/%3E%3Ccircle cx='82' cy='80' r='9' fill='%2396691E'/%3E%3Cline x1='50' y1='50' x2='18' y2='20' stroke='%232C4372' stroke-width='3'/%3E%3Cline x1='50' y1='50' x2='82' y2='20' stroke='%232C4372' stroke-width='3'/%3E%3Cline x1='50' y1='50' x2='18' y2='80' stroke='%232C4372' stroke-width='3'/%3E%3Cline x1='50' y1='50' x2='82' y2='80' stroke='%232C4372' stroke-width='3'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +29,7 @@
     --textw:700px;
   }
   *{box-sizing:border-box;}
+  [hidden]{ display:none !important; }
   html{scroll-behavior:smooth;}
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
@@ -283,10 +284,13 @@
       <div>
         <h1>SAWA</h1>
         <p class="subtitle">Semantic Affordances for the Web of Agents: bridging Multi-Agent Systems, Semantic Web Services, and Agentic AI</p>
-        <p class="meta">A half-day, Dagstuhl-style Barstuhl workshop at ISWC 2026. Monday 26 October 2026, 09:00 to 12:50, at The Nicolaus Hotel, Bari, Italy (room to be confirmed).</p>
-        <p class="notice"><strong>Lightning talk proposals close on Wednesday 21 October.</strong> Get involved; propose a title, a short abstract and one sentence on your position, not a paper.</p>
+        <p class="meta">A half-day, Dagstuhl-style Barstuhl workshop at ISWC 2026. Monday 26 October 2026, 09:00 to 12:50, in the Orione room at The Nicolaus Hotel, Bari, Italy.</p>
+        <p class="notice">
+          <span data-when="open"><strong>Lightning talk proposals close on Thursday 22 October (23:59 AoE).</strong> Get involved; propose a title, a short abstract and one sentence on your position, not a paper.</span>
+          <span data-when="closed" hidden><strong>Lightning talk proposals are now closed.</strong> It is still possible to attend. Just turn up on Monday 26 October at 09:00.</span>
+        </p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#participate">Propose a lightning talk</a>
+          <a class="btn btn-primary" href="#participate"><span data-when="open">Propose a lightning talk</span><span data-when="closed" hidden>How to take part</span></a>
           <a class="btn btn-outline" href="#programme">See the programme</a>
         </div>
       </div>
@@ -420,12 +424,14 @@
       <div class="two-col">
         <div>
           <h3>Give a lightning talk</h3>
-          <p>A lightning talk is three minutes and one slide, and it states a position you want the room to argue about. Send a title, an abstract of up to 150 words and a one-sentence position through the proposal form. We will confirm talks as proposals arrive and publish the final programme by Thursday 22 October.</p>
+          <p data-when="open">A lightning talk is three minutes and one slide, and it states a position you want the room to argue about. Send a title, an abstract of up to 150 words and a one-sentence position through the proposal form. We will confirm talks as proposals arrive and publish the final programme by Sunday 25 October.</p>
+          <p data-when="closed" hidden>Lightning talk proposals have now closed, and we are grateful to everyone who sent one. A lightning talk is three minutes and one slide, and it states a position for the room to argue about.</p>
           <div class="form-box">
-            <p><strong>Proposals close on Wednesday 21 October.</strong></p>
-            <!-- TODO: replace href="#" with the Google Form link, and remove the "tbc" line below. -->
-            <p class="tbc">The form link will appear here.</p>
-            <a class="btn btn-primary" href="#">Open the proposal form</a>
+            <div data-when="open">
+              <p><strong>Proposals close on Thursday 22 October (23:59 AoE).</strong></p>
+              <a class="btn btn-primary" href="https://forms.gle/1RPhhvreyT384BnL7">Open the proposal form</a>
+            </div>
+            <p data-when="closed" hidden><strong>The proposal form has now closed.</strong> You can still attend. Just turn up on Monday 26 October at 09:00.</p>
           </div>
 
           <h3>Join the discussion</h3>
@@ -436,8 +442,8 @@
           <div class="key-dates">
             <h3>Key dates</h3>
             <dl>
-              <dt>Proposals close</dt><dd>Wednesday 21 October 2026</dd>
-              <dt>Final programme</dt><dd>Thursday 22 October 2026</dd>
+              <dt>Proposals close</dt><dd>Thursday 22 October 2026, 23:59 AoE</dd>
+              <dt>Final programme</dt><dd>Sunday 25 October 2026</dd>
               <dt>Workshop</dt><dd>Monday 26 October 2026, 09:00 to 12:50</dd>
             </dl>
           </div>
@@ -461,7 +467,7 @@
         </div>
         <div class="box ochre">
           <h3>Afterwards</h3>
-          <p class="result"><strong>A draft research agenda.</strong> Published openly with a DOI, with contributing participants invited as co-authors. Target date: <span class="tbc">to be confirmed</span>.</p>
+          <p class="result"><strong>A draft research agenda.</strong> Published openly with a DOI, with contributing participants invited as co-authors. Target date: end of January 2027.</p>
           <p class="result"><strong>A draft Dagstuhl seminar proposal.</strong> Developed from the agenda.</p>
           <p class="result"><strong>A place to continue.</strong> The W3C WebAgents Community Group is a natural home for the conversation.</p>
         </div>
@@ -529,10 +535,23 @@
 
 <footer>
   <div class="wrap">
-    <p>Questions? Write to any of the organisers, or to Terry R. Payne at <a href="mailto:T.R.Payne@liverpool.ac.uk">T.R.Payne@liverpool.ac.uk</a>.</p>
+    <p>Questions? Write to <a href="mailto:sawaworkshop2026@gmail.com">sawaworkshop2026@gmail.com</a>.</p>
     <p>Part of <a href="https://iswc2026.semanticweb.org/">ISWC 2026</a>, Bari, Italy, 25&ndash;29 October 2026. &copy; 2026 SAWA workshop organisers.</p>
   </div>
 </footer>
 
+<script>
+  /* After the deadline (23:59 Anywhere on Earth on 22 October 2026, which is 11:59 UTC on 23 October)
+     the page switches itself to the "closed" wording. No upload is needed on the day. */
+  (function () {
+    var deadline = new Date('2026-10-23T11:59:59Z').getTime();
+    if (Date.now() > deadline) {
+      var open = document.querySelectorAll('[data-when="open"]');
+      var closed = document.querySelectorAll('[data-when="closed"]');
+      for (var i = 0; i < open.length; i++) open[i].hidden = true;
+      for (var j = 0; j < closed.length; j++) closed[j].hidden = false;
+    }
+  })();
+</script>
 </body>
 </html>
