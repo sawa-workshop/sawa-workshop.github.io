@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SAWA 2026: Semantic Affordances for the Web of Agents</title>
-<meta name="description" content="SAWA is a half-day ISWC 2026 workshop in Bari, Italy, bringing the Multi-Agent Systems, Semantic Web Services, and Agentic AI communities together around affordance-based approaches to agent and service discovery.">
+<meta name="description" content="SAWA is a half-day, Dagstuhl-style Barstuhl workshop at ISWC 2026 in Bari, bringing the Multi-Agent Systems, Semantic Web Services, and Agentic AI communities together around affordance-based approaches to agent and service discovery.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SAWA 2026: Semantic Affordances for the Web of Agents">
+<meta property="og:description" content="A half-day Barstuhl workshop at ISWC 2026, Monday 26 October, Bari. Lightning talk proposals close Wednesday 21 October.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='14' fill='%232C4372'/%3E%3Ccircle cx='18' cy='20' r='9' fill='%2396691E'/%3E%3Ccircle cx='82' cy='20' r='9' fill='%2396691E'/%3E%3Ccircle cx='18' cy='80' r='9' fill='%2396691E'/%3E%3Ccircle cx='82' cy='80' r='9' fill='%2396691E'/%3E%3Cline x1='50' y1='50' x2='18' y2='20' stroke='%232C4372' stroke-width='3'/%3E%3Cline x1='50' y1='50' x2='82' y2='20' stroke='%232C4372' stroke-width='3'/%3E%3Cline x1='50' y1='50' x2='18' y2='80' stroke='%232C4372' stroke-width='3'/%3E%3Cline x1='50' y1='50' x2='82' y2='80' stroke='%232C4372' stroke-width='3'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +24,7 @@
     --ochre:#96691E;
     --ochre-soft:#C79A4C;
     --rule:#D9D2BE;
+    --radius:14px;
     --maxw:920px;
     --textw:700px;
   }
@@ -31,74 +35,50 @@
     *{animation:none !important; transition:none !important;}
   }
   body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
+    margin:0; background:var(--bg); color:var(--ink);
     font-family:"Source Sans 3", system-ui, sans-serif;
-    font-size:1.05rem;
-    line-height:1.65;
+    font-size:1.05rem; line-height:1.65;
   }
   h1,h2,h3{
     font-family:"Source Serif 4", Georgia, serif;
-    color:var(--ink);
-    line-height:1.15;
-    margin:0 0 0.5em;
+    color:var(--ink); line-height:1.2; margin:0 0 0.5em;
   }
   a{color:var(--indigo);}
   a:hover{color:var(--indigo-dark);}
-  a:focus-visible, button:focus-visible, .nav-toggle-label:focus-visible{
-    outline:2.5px solid var(--ochre);
-    outline-offset:2px;
+  a:focus-visible, .nav-toggle-label:focus-visible{
+    outline:2.5px solid var(--ochre); outline-offset:2px;
   }
   .skip-link{
     position:absolute; left:-999px; top:0;
-    background:var(--indigo); color:#fff; padding:0.6em 1em;
-    z-index:100;
+    background:var(--indigo); color:#fff; padding:0.6em 1em; z-index:100;
   }
   .skip-link:focus{ left:1em; top:1em; }
 
   .wrap{max-width:var(--maxw); margin:0 auto; padding:0 1.5rem;}
   .prose{max-width:var(--textw);}
+  section[id], #top{ scroll-margin-top:4.2rem; }
 
-  /* Top strip */
-  .top-strip{
-    background:var(--indigo);
-    color:#EDE7D6;
-    font-size:0.85rem;
-  }
-  .top-strip .wrap{
-    display:flex; justify-content:space-between; gap:1rem;
-    padding:0.45rem 1.5rem;
-  }
+  .top-strip{ background:var(--indigo); color:#EDE7D6; font-size:0.85rem; }
+  .top-strip .wrap{ display:flex; justify-content:space-between; gap:1rem; padding:0.45rem 1.5rem; }
 
-  /* Nav */
   header.site-header{
-    background:var(--bg);
-    border-bottom:1px solid var(--rule);
+    background:var(--bg); border-bottom:1px solid var(--rule);
     position:sticky; top:0; z-index:20;
   }
-  .nav-bar{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:0.9rem 0;
-  }
+  .nav-bar{ display:flex; align-items:center; justify-content:space-between; padding:0.9rem 1.5rem; }
   .wordmark{
-    font-family:"Source Serif 4", serif;
-    font-weight:700; font-size:1.3rem;
+    font-family:"Source Serif 4", serif; font-weight:700; font-size:1.3rem;
     color:var(--ink); text-decoration:none;
   }
-  .site-nav{
-    display:flex; gap:1.6rem;
-  }
-  .site-nav a{
-    color:var(--ink); text-decoration:none; font-size:0.97rem; font-weight:500;
-  }
-  .site-nav a:hover{color:var(--indigo);}
-  .nav-toggle, .nav-toggle-label{display:none;}
-
+  .site-nav{ display:flex; gap:1.6rem; }
+  .site-nav a{ color:var(--ink); text-decoration:none; font-size:0.97rem; font-weight:500; }
+  .site-nav a:hover{ color:var(--indigo); }
+  .nav-toggle, .nav-toggle-label{ display:none; }
   @media (max-width:720px){
+    .nav-bar{ flex-wrap:wrap; }
     .nav-toggle-label{
       display:block; cursor:pointer; font-size:1.5rem; line-height:1;
-      background:none; border:none; color:var(--ink); padding:0.2rem 0.3rem;
+      color:var(--ink); padding:0.2rem 0.3rem;
     }
     .site-nav{
       flex-direction:column; gap:0; max-height:0; overflow:hidden;
@@ -109,144 +89,163 @@
   }
 
   /* Hero */
-  .hero{ padding:3.5rem 0 3rem; }
-  .hero-grid{
-    display:grid; grid-template-columns:1.1fr 0.9fr; gap:2.5rem; align-items:center;
-  }
+  .hero{ padding:3.2rem 0 3rem; }
+  .hero-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:2.5rem; align-items:center; }
   @media (max-width:820px){ .hero-grid{ grid-template-columns:1fr; } }
-  .hero h1{
-    font-size:clamp(2.6rem, 6vw, 3.6rem);
-    font-weight:700;
-    margin-bottom:0.15em;
-  }
+  .hero h1{ font-size:clamp(2.6rem, 6vw, 3.6rem); font-weight:700; margin-bottom:0.15em; }
   .hero .subtitle{
-    font-family:"Source Serif 4", serif;
-    font-size:clamp(1.15rem, 2.6vw, 1.5rem);
-    font-weight:400;
-    color:var(--ink-soft);
-    margin-bottom:1.1em;
+    font-family:"Source Serif 4", serif; font-size:clamp(1.15rem, 2.6vw, 1.45rem);
+    font-weight:400; color:var(--ink-soft); margin-bottom:1em;
   }
-  .hero .meta{
-    font-size:1.02rem;
-    color:var(--ink-soft);
-    max-width:34em;
-    margin-bottom:1.6em;
+  .hero .meta{ font-size:1.02rem; color:var(--ink); max-width:34em; margin-bottom:1.2em; }
+  .notice{
+    background:var(--surface); border:1px solid var(--rule); border-left:4px solid var(--ochre);
+    border-radius:var(--radius);
+    padding:0.85rem 1.1rem; margin:0 0 1.5rem; max-width:34em; font-size:0.98rem;
   }
   .cta-row{ display:flex; gap:0.9rem; flex-wrap:wrap; }
   .btn{
-    display:inline-block; text-decoration:none;
-    padding:0.7em 1.3em; border-radius:3px;
-    font-weight:600; font-size:0.97rem;
+    display:inline-block; text-decoration:none; padding:0.7em 1.3em;
+    border-radius:8px; font-weight:600; font-size:0.97rem;
   }
   .btn-primary{ background:var(--indigo); color:#fff; }
   .btn-primary:hover{ background:var(--indigo-dark); color:#fff; }
   .btn-outline{ border:1.5px solid var(--ink); color:var(--ink); }
   .btn-outline:hover{ background:var(--ink); color:var(--bg); }
-
-  .hero-graphic{ display:flex; justify-content:center; }
-  .hero-graphic svg{ width:100%; max-width:360px; height:auto; }
-  .hero-graphic figcaption{
-    text-align:center; font-size:0.82rem; color:var(--ink-soft); margin-top:0.5rem;
-  }
+  .hero-graphic{ margin:0; display:flex; flex-direction:column; align-items:center; }
+  .hero-graphic svg{ width:100%; max-width:400px; height:auto; }
+  .hero-graphic figcaption{ text-align:center; font-size:0.82rem; color:var(--ink-soft); margin-top:0.5rem; }
 
   /* Sections */
   section{ padding:3rem 0; border-top:1px solid var(--rule); }
-  section:first-of-type{ border-top:none; }
+  section.hero{ border-top:none; }
   section.tinted{ background:var(--surface-tint); }
-  h2{
-    font-size:1.65rem; font-weight:600;
-    margin-bottom:1em;
-  }
+  h2{ font-size:1.65rem; font-weight:600; margin-bottom:0.9em; }
+  h3{ font-size:1.2rem; font-weight:600; }
   section p{ margin:0 0 1.1em; }
+  .lead{ color:var(--ink-soft); max-width:var(--textw); }
 
-  .further-reading{
-    margin-top:1.6rem; padding:1.2rem 1.4rem;
-    background:var(--surface); border-left:3px solid var(--ochre);
+  /* About: heading and topics at the left, text at the right */
+  .about-grid{
+    display:grid; grid-template-columns:270px 1fr;
+    grid-template-areas:"head text" "topics text";
+    column-gap:2.5rem; align-items:start;
   }
-  .further-reading h3{
-    font-family:"Source Sans 3", sans-serif; font-size:0.95rem; font-weight:700;
-    text-transform:none; margin-bottom:0.7em; color:var(--ink);
+  .about-grid > h2{ grid-area:head; margin:0 0 0.9em; }
+  .topics-box{ grid-area:topics; }
+  .about-text{ grid-area:text; }
+  @media (max-width:820px){
+    .about-grid{ grid-template-columns:1fr; grid-template-areas:"head" "text" "topics"; }
+    .topics-box{ margin-top:1rem; }
   }
-  .further-reading ol{ margin:0; padding-left:1.2em; }
-  .further-reading li{ margin-bottom:0.6em; font-size:0.94rem; color:var(--ink-soft); }
-  .further-reading a{ color:var(--indigo); }
+  .topics-box{
+    background:var(--surface); border:1px solid var(--rule); border-top:3px solid var(--ochre);
+    border-radius:var(--radius); padding:1.2rem 1.2rem 1rem;
+  }
+  .topics-box h3{ font-size:1.05rem; margin-bottom:0.7em; }
+  .topics-box ul{ list-style:none; margin:0; padding:0; }
+  .topics-box li{
+    position:relative; padding-left:1.05em; margin-bottom:0.5em;
+    font-size:0.92rem; line-height:1.4;
+  }
+  .topics-box li::before{
+    content:""; position:absolute; left:0; top:0.5em; width:6px; height:6px; background:var(--ochre);
+  }
 
-  /* Topics grid */
-  .topics-grid{
-    display:grid; grid-template-columns:1fr 1fr; gap:0.6em 2em;
-    list-style:none; margin:0; padding:0;
+  /* Boxes (challenges and results) */
+  .box-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; margin-top:1.6rem; }
+  @media (max-width:720px){ .box-grid{ grid-template-columns:1fr; } }
+  .box{
+    display:flex; flex-direction:column;
+    background:var(--surface); border:1px solid var(--rule);
+    border-top:3px solid var(--indigo); border-radius:var(--radius);
+    padding:1.4rem 1.4rem 1.2rem;
   }
-  @media (max-width:640px){ .topics-grid{ grid-template-columns:1fr; } }
-  .topics-grid li{
-    padding-left:1.1em; position:relative;
-  }
-  .topics-grid li::before{
-    content:""; position:absolute; left:0; top:0.6em;
-    width:6px; height:6px; background:var(--ochre);
-  }
+  .box.ochre{ border-top-color:var(--ochre); }
+  .box h3{ font-size:1.2rem; margin-bottom:0.5em; }
+  .box p{ font-size:0.97rem; margin-bottom:0.9em; }
+  .box p:last-child{ margin-bottom:0; }
 
-  /* Programme table */
-  .prog-note{ color:var(--ink-soft); font-size:0.96rem; margin-bottom:1.5em; }
-  table.schedule{
-    width:100%; border-collapse:collapse; background:var(--surface);
-    font-size:0.97rem;
+  /* Programme */
+  .timebar{ display:flex; gap:2px; height:3rem; margin:0 0 1.6rem; }
+  .seg{
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-size:0.72rem; font-weight:600; color:#fff; overflow:hidden; white-space:nowrap; padding:0 0.2rem;
+    border-radius:6px;
   }
-  table.schedule caption{ text-align:left; font-weight:600; margin-bottom:0.6em; }
+  .seg-welcome{ background:var(--ink-soft); }
+  .seg-talks{ background:var(--ochre); }
+  .seg-disc{ background:var(--indigo); }
+  .seg-break{ background:var(--surface-tint); color:var(--ink); border:1px solid var(--rule); }
+  .seg-synth{ background:var(--indigo-dark); }
+  .seg-close{ background:var(--ink-soft); }
+  @media (max-width:640px){ .timebar{ display:none; } }
+
+  .table-wrap{ border:1px solid var(--rule); border-radius:var(--radius); overflow:hidden; background:var(--surface); }
+  table.schedule{ width:100%; border-collapse:collapse; font-size:0.97rem; }
   table.schedule th, table.schedule td{
-    text-align:left; padding:0.75em 1em; border-bottom:1px solid var(--rule);
+    text-align:left; vertical-align:top; padding:0.75em 1em; border-bottom:1px solid var(--rule);
   }
-  table.schedule th{
-    font-family:"Source Sans 3", sans-serif; font-weight:700;
-    background:var(--surface-tint);
-  }
+  table.schedule tbody tr:last-child td{ border-bottom:none; }
+  table.schedule th{ font-weight:700; background:var(--surface-tint); }
   table.schedule td:first-child, table.schedule th:first-child{
     white-space:nowrap; font-variant-numeric:tabular-nums; width:9.5em;
   }
-  .logistics{ margin-top:1.3em; font-size:0.94rem; color:var(--ink-soft); }
-
-  /* Key dates */
-  .key-dates{
-    margin-top:1.6rem; background:var(--surface);
-    border:1px solid var(--rule); padding:1.2rem 1.4rem;
+  table.schedule td:nth-child(2){ font-weight:600; width:13em; }
+  table.schedule td:nth-child(3){ color:var(--ink-soft); }
+  @media (max-width:640px){
+    table.schedule thead{ display:none; }
+    table.schedule tr{ display:block; padding:0.6rem 0; border-bottom:1px solid var(--rule); }
+    table.schedule td{ display:block; border:none; padding:0.1em 1em; width:auto !important; }
   }
-  .key-dates dl{ margin:0; display:grid; grid-template-columns:auto 1fr; gap:0.5em 1.2em; }
-  .key-dates dt{ font-weight:600; }
+
+  /* Take part */
+  .two-col{ display:grid; grid-template-columns:1.25fr 0.75fr; gap:2.5rem; align-items:start; }
+  @media (max-width:820px){ .two-col{ grid-template-columns:1fr; gap:0; } }
+  .form-box{
+    background:var(--surface); border:1px solid var(--rule);
+    padding:1.1rem 1.3rem; margin:0 0 1.6rem; border-radius:var(--radius);
+  }
+  .form-box p{ margin-bottom:0.8em; }
+  .tbc{ font-style:italic; color:var(--ink-soft); }
+  .key-dates{ background:var(--surface); border:1px solid var(--rule); border-radius:var(--radius); padding:1.2rem 1.4rem; margin-bottom:1.6rem; }
+  .key-dates h3{ font-size:1.05rem; }
+  .key-dates dl{ margin:0; display:grid; gap:0.2em; }
+  .key-dates dt{ font-weight:600; margin-top:0.7em; }
+  .key-dates dt:first-child{ margin-top:0; }
   .key-dates dd{ margin:0; color:var(--ink-soft); }
-  .tbc{ font-style:italic; }
 
-  /* Organizers */
-  .org-grid{
-    display:grid; grid-template-columns:1fr 1fr; gap:2rem;
-  }
+  /* Results */
+  .result{ margin-bottom:0.9em; }
+  .result strong{ color:var(--ink); }
+
+  /* Organisers */
+  .org-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; }
   @media (max-width:720px){ .org-grid{ grid-template-columns:1fr; } }
   .org-card{
-    border-left:3px solid var(--indigo);
-    padding:0.2rem 0 0.2rem 1.2rem;
+    display:flex; gap:1.1rem; align-items:flex-start;
+    background:var(--surface); border:1px solid var(--rule); border-radius:var(--radius); padding:1.3rem;
   }
-  .org-card h3{
-    font-size:1.15rem; font-weight:600; margin-bottom:0.15em;
+  /* Each avatar shows initials underneath and the photo on top. If the photo file is missing,
+     the initials remain visible. Photos live in images/ next to this file. */
+  .avatar{
+    position:relative; flex:0 0 84px; width:84px; height:84px; border-radius:50%; overflow:hidden; border:1px solid var(--rule);
+    background:var(--indigo); color:#fff; display:flex; align-items:center; justify-content:center;
+    font-family:"Source Serif 4", serif; font-weight:600; font-size:1.5rem;
   }
-  .org-affil{ color:var(--ink-soft); font-size:0.92rem; margin-bottom:0.7em; }
-  .org-card p{ font-size:0.96rem; margin-bottom:0.8em; }
+  .avatar img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .org-card h3{ font-size:1.15rem; margin-bottom:0.1em; }
+  .org-affil{ color:var(--ink-soft); font-size:0.9rem; margin-bottom:0.6em; }
+  .org-card p{ font-size:0.94rem; margin-bottom:0.7em; }
   .org-links{ font-size:0.9rem; display:flex; gap:1em; }
 
-  /* Outcomes */
-  .outcome{ margin-bottom:1.3em; }
-  .outcome strong{ color:var(--ink); }
-
-  footer{
-    border-top:1px solid var(--rule);
-    padding:2.5rem 0; font-size:0.9rem; color:var(--ink-soft);
-  }
+  footer{ border-top:1px solid var(--rule); padding:2.5rem 0; font-size:0.9rem; color:var(--ink-soft); }
   footer a{ color:var(--ink-soft); }
-  footer .chairs{ margin-bottom:0.6em; }
+  footer p{ margin:0 0 0.6em; }
 
   @media (prefers-reduced-motion: no-preference){
     .hero-grid{ animation:rise 0.6s ease both; }
-    @keyframes rise{
-      from{ opacity:0; transform:translateY(10px); }
-      to{ opacity:1; transform:translateY(0); }
-    }
+    @keyframes rise{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:translateY(0); } }
   }
 </style>
 </head>
@@ -266,11 +265,12 @@
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <label for="nav-toggle" class="nav-toggle-label">&#9776;</label>
     <nav class="site-nav" aria-label="Section navigation">
-      <a href="#overview">Overview</a>
+      <a href="#about">About</a>
+      <a href="#challenges">Challenges</a>
       <a href="#programme">Programme</a>
-      <a href="#topics">Topics</a>
-      <a href="#submit">Submit</a>
-      <a href="#organizers">Organizers</a>
+      <a href="#participate">Take part</a>
+      <a href="#results">Results</a>
+      <a href="#organisers">Organisers</a>
     </nav>
   </div>
 </header>
@@ -283,176 +283,245 @@
       <div>
         <h1>SAWA</h1>
         <p class="subtitle">Semantic Affordances for the Web of Agents: bridging Multi-Agent Systems, Semantic Web Services, and Agentic AI</p>
-        <p class="meta">A half-day, discussion-led workshop at ISWC 2026 in Bari, Italy, held on 25 or 26 October 2026 (exact day and room to be confirmed).</p>
+        <p class="meta">A half-day, Dagstuhl-style Barstuhl workshop at ISWC 2026. Monday 26 October 2026, 09:00 to 12:50, at The Nicolaus Hotel, Bari, Italy (room to be confirmed).</p>
+        <p class="notice"><strong>Lightning talk proposals close on Wednesday 21 October.</strong> Get involved; propose a title, a short abstract and one sentence on your position, not a paper.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#submit">Submission guidelines</a>
+          <a class="btn btn-primary" href="#participate">Propose a lightning talk</a>
           <a class="btn btn-outline" href="#programme">See the programme</a>
         </div>
       </div>
       <figure class="hero-graphic">
-        <svg viewBox="0 0 440 360" role="img" aria-labelledby="heroSvgTitle">
+        <svg viewBox="0 0 500 420" role="img" aria-labelledby="heroSvgTitle">
           <title id="heroSvgTitle">A diagram showing Semantic Web Services, Multi-Agent Systems, Agentic AI, and Knowledge Graphs, each connected to a central node labelled Affordances, and loosely connected to one another.</title>
-          <line x1="80" y1="70" x2="360" y2="70" stroke="var(--rule)" stroke-width="2"/>
-          <line x1="360" y1="70" x2="360" y2="310" stroke="var(--rule)" stroke-width="2"/>
-          <line x1="360" y1="310" x2="80" y2="310" stroke="var(--rule)" stroke-width="2"/>
-          <line x1="80" y1="310" x2="80" y2="70" stroke="var(--rule)" stroke-width="2"/>
-          <line x1="220" y1="190" x2="80" y2="70" stroke="var(--indigo)" stroke-width="2.5"/>
-          <line x1="220" y1="190" x2="360" y2="70" stroke="var(--indigo)" stroke-width="2.5"/>
-          <line x1="220" y1="190" x2="80" y2="310" stroke="var(--indigo)" stroke-width="2.5"/>
-          <line x1="220" y1="190" x2="360" y2="310" stroke="var(--indigo)" stroke-width="2.5"/>
-          <circle cx="80" cy="70" r="30" fill="var(--ochre-soft)"/>
-          <circle cx="360" cy="70" r="30" fill="var(--ochre-soft)"/>
-          <circle cx="80" cy="310" r="30" fill="var(--ochre-soft)"/>
-          <circle cx="360" cy="310" r="30" fill="var(--ochre-soft)"/>
-          <circle cx="220" cy="190" r="42" fill="var(--indigo)"/>
-          <text x="220" y="185" text-anchor="middle" fill="#fff" font-family="Source Sans 3, sans-serif" font-size="13" font-weight="700">Afford-</text>
-          <text x="220" y="201" text-anchor="middle" fill="#fff" font-family="Source Sans 3, sans-serif" font-size="13" font-weight="700">ances</text>
-          <text x="80" y="65" text-anchor="middle" fill="#2A2013" font-family="Source Sans 3, sans-serif" font-size="11.5" font-weight="600">Semantic Web</text>
-          <text x="80" y="79" text-anchor="middle" fill="#2A2013" font-family="Source Sans 3, sans-serif" font-size="11.5" font-weight="600">Services</text>
-          <text x="360" y="65" text-anchor="middle" fill="#2A2013" font-family="Source Sans 3, sans-serif" font-size="11.5" font-weight="600">Multi-Agent</text>
-          <text x="360" y="79" text-anchor="middle" fill="#2A2013" font-family="Source Sans 3, sans-serif" font-size="11.5" font-weight="600">Systems</text>
-          <text x="80" y="305" text-anchor="middle" fill="#2A2013" font-family="Source Sans 3, sans-serif" font-size="11.5" font-weight="600">Agentic</text>
-          <text x="80" y="319" text-anchor="middle" fill="#2A2013" font-family="Source Sans 3, sans-serif" font-size="11.5" font-weight="600">AI</text>
-          <text x="360" y="305" text-anchor="middle" fill="#2A2013" font-family="Source Sans 3, sans-serif" font-size="11.5" font-weight="600">Knowledge</text>
-          <text x="360" y="319" text-anchor="middle" fill="#2A2013" font-family="Source Sans 3, sans-serif" font-size="11.5" font-weight="600">Graphs</text>
+          <line x1="76" y1="76" x2="424" y2="76" stroke="var(--rule)" stroke-width="2.5"/>
+          <line x1="424" y1="76" x2="424" y2="344" stroke="var(--rule)" stroke-width="2.5"/>
+          <line x1="424" y1="344" x2="76" y2="344" stroke="var(--rule)" stroke-width="2.5"/>
+          <line x1="76" y1="344" x2="76" y2="76" stroke="var(--rule)" stroke-width="2.5"/>
+          <line x1="250" y1="210" x2="76" y2="76" stroke="var(--indigo)" stroke-width="3"/>
+          <line x1="250" y1="210" x2="424" y2="76" stroke="var(--indigo)" stroke-width="3"/>
+          <line x1="250" y1="210" x2="76" y2="344" stroke="var(--indigo)" stroke-width="3"/>
+          <line x1="250" y1="210" x2="424" y2="344" stroke="var(--indigo)" stroke-width="3"/>
+          <circle cx="76" cy="76" r="64" fill="var(--ochre-soft)"/>
+          <text x="76" y="73" text-anchor="middle" fill="#2A2013" font-family="Source Sans 3, sans-serif" font-size="17" font-weight="700">Semantic Web</text>
+          <text x="76" y="93" text-anchor="middle" fill="#2A2013" font-family="Source Sans 3, sans-serif" font-size="17" font-weight="700">Services</text>
+          <circle cx="424" cy="76" r="64" fill="var(--ochre-soft)"/>
+          <text x="424" y="73" text-anchor="middle" fill="#2A2013" font-family="Source Sans 3, sans-serif" font-size="17" font-weight="700">Multi-Agent</text>
+          <text x="424" y="93" text-anchor="middle" fill="#2A2013" font-family="Source Sans 3, sans-serif" font-size="17" font-weight="700">Systems</text>
+          <circle cx="76" cy="344" r="64" fill="var(--ochre-soft)"/>
+          <text x="76" y="341" text-anchor="middle" fill="#2A2013" font-family="Source Sans 3, sans-serif" font-size="17" font-weight="700">Agentic</text>
+          <text x="76" y="361" text-anchor="middle" fill="#2A2013" font-family="Source Sans 3, sans-serif" font-size="17" font-weight="700">AI</text>
+          <circle cx="424" cy="344" r="64" fill="var(--ochre-soft)"/>
+          <text x="424" y="341" text-anchor="middle" fill="#2A2013" font-family="Source Sans 3, sans-serif" font-size="17" font-weight="700">Knowledge</text>
+          <text x="424" y="361" text-anchor="middle" fill="#2A2013" font-family="Source Sans 3, sans-serif" font-size="17" font-weight="700">Graphs</text>
+          <circle cx="250" cy="210" r="68" fill="var(--indigo)"/>
+          <text x="250" y="217" text-anchor="middle" fill="#fff" font-family="Source Sans 3, sans-serif" font-size="19" font-weight="700">Affordances</text>
         </svg>
         <figcaption>Four communities, one shared question: what can an agent do here?</figcaption>
       </figure>
     </div>
   </section>
 
-  <section id="overview">
-    <div class="wrap prose">
-      <h2>Overview</h2>
-      <p>Twenty years ago, the Semantic Web Services community asked how autonomous agents with different ontological commitments could discover, combine, and invoke each other's capabilities. OWL-S, WSMO, and SAWSDL were the answer: formally grounded capability descriptions, explicit mediation across heterogeneous services, and protocols for discovery and composition.</p>
-      <p>LLM-based agentic AI is now running into the same problem. Frameworks such as the Model Context Protocol and Agent2Agent largely describe tools and services in natural language, and select between them by linguistic similarity rather than formal semantics. That reintroduces failure modes the Semantic Web Services community already spent a decade characterising, and in many cases solving.</p>
-      <p>SAWA is a half-day, discussion-led workshop that puts the Multi-Agent Systems, Semantic Web Services, and Agentic AI communities in the same room to ask what that older formal work still has to offer, with a particular focus on affordances: what an agent can actually do, given its state and its environment. The aim is a shared research agenda, and a first step toward a follow-up Dagstuhl proposal.</p>
-    </div>
-  </section>
-
-  <section id="motivation" class="tinted">
-    <div class="wrap prose">
-      <h2>Motivation</h2>
-      <p>The original Semantic Web placed autonomous agents at the centre of a globally distributed, machine-readable knowledge ecosystem. RDF, OWL, SPARQL, and mature reasoning engines followed, alongside a substantial programme of work on service description, mediation, and discovery protocols, all designed for the same open, multi-agent settings that agentic AI systems are now being deployed into at scale.</p>
-      <p>Recent work has started to draw these threads back together. Polleres and colleagues have traced the historical roots of agentic AI directly back to Semantic Web Services research, and there is growing interest across the Semantic Web and Multi-Agent Systems communities in framing agent, service, and resource discovery through the lens of affordances: formalising what an agent can do, given its state, its goals, and its environment.</p>
-      <p>SAWA brings the Multi-Agent Systems, Semantic Web Services, and Semantic Web communities together to critically assess what this research legacy offers the design of current LLM-based agentic systems, and where affordance frameworks in particular can provide a grounded alternative to purely linguistic tool and service descriptions.</p>
-      <div class="further-reading">
-        <h3>Further reading</h3>
-        <ol>
-          <li>Polleres, A., Bauer, F., Dobriy, D., K&auml;fer, T., Kubelka, L., Harth, A., Wehr, T. (2026). <a href="https://doi.org/10.1145/3774905.3795076">On the Historic Roots of Agentic AI in Semantic Web Services</a>. Companion Proceedings of the ACM Web Conference 2026 (WWW Companion '26), 10&ndash;14.</li>
-          <li>Payne, T.R., Tamma, V., Daga, E. (2026). <a href="https://arxiv.org/abs/2605.19186">Discoverable Agent Knowledge: A Formal Framework for Agentic KG Affordances</a>. arXiv:2605.19186.</li>
-          <li>Tiddi, I., De Boer, V., Schlobach, S., Meyer-Vitali, A. (2023). <a href="https://doi.org/10.1145/3587259.3627541">Knowledge Engineering for Hybrid Intelligence</a>. Proceedings of the 12th Knowledge Capture Conference (K-CAP '23).</li>
-        </ol>
+  <section id="about">
+    <div class="wrap about-grid">
+      <h2>About the workshop</h2>
+      <aside class="topics-box" aria-labelledby="topics-title">
+        <h3 id="topics-title">Topics of interest</h3>
+        <ul>
+          <li>Agentic AI and LLM-driven pipelines</li>
+          <li>Bridging LLM-based and symbolic architectures</li>
+          <li>Service and knowledge graph description, planning and grounding</li>
+          <li>Affordance-based discovery and composition</li>
+          <li>Semantic interoperability and alignment</li>
+          <li>Trust, verification, entailment and closure assumptions</li>
+          <li>Agent protocols and Web-native agents</li>
+          <li>Goal decomposition and human-agent interaction</li>
+          <li>LLM-assisted annotation of tools and services</li>
+          <li>Benchmarks, testbeds and scenarios</li>
+        </ul>
+      </aside>
+      <div class="prose about-text">
+        <p>The original Semantic Web placed autonomous agents at the centre of a globally distributed, machine-readable knowledge ecosystem. RDF, OWL, SPARQL, and mature reasoning engines emerged alongside extensive work on service description, mediation, and discovery, addressing the same open, multi-agent settings in which agentic AI systems are now being deployed. The Semantic Web Services community explored how agents with different ontological commitments could discover, combine, and invoke one another’s capabilities.</p>
+        <p>LLM-based agentic AI is now confronting the same challenge. Frameworks such as the Model Context Protocol and Agent2Agent largely describe tools and services in natural language, selecting between them through linguistic similarity rather than formal semantics. This risks reintroducing failure modes that the Semantic Web Services community spent a decade characterising and, in many cases, solving.</p>
+        <p>SAWA brings together the Multi-Agent Systems, Semantic Web Services, and Semantic Web communities to explore how this research legacy can inform the design of contemporary LLM-based agentic systems. It will critically assess how established research in the Semantic Web and Multi-Agent Systems can inform agent, service, and resource discovery in contemporary LLM-based systems. This includes exploring the potential of affordance-based approaches to complement linguistic descriptions of tools and services, providing a more grounded basis for identifying and selecting capabilities in dynamic, multi-agent environments.</p>
       </div>
     </div>
   </section>
 
-  <section id="topics">
-    <div class="wrap prose">
-      <h2>Topics of interest</h2>
-      <ul class="topics-grid">
-        <li>Revisiting Semantic Web Services, including OWL-S and WSMO, for agentic AI</li>
-        <li>Capability description and ontological grounding for agentic tools and services</li>
-        <li>Agent communication protocols and semantic interoperability</li>
-        <li>Bridging LLM-based and symbolic agent architectures</li>
-        <li>Ontology-based and knowledge graph approaches to planning, symbol grounding, and action execution</li>
-        <li>Human-agent interaction and goal decomposition in agentic environments</li>
-        <li>Epistemic trust, entailment regimes, and closure assumptions in discovering and querying agentic knowledge graphs</li>
-        <li>Agentic AI in domains such as ontology engineering, smart environments, and digital assistants</li>
-        <li>Evaluation benchmarks and testbeds for agentic knowledge systems</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="programme" class="tinted">
-    <div class="wrap prose">
-      <h2>Programme</h2>
-      <p class="prog-note">The proposal was reviewed and accepted as a full-day event; ISWC 2026 has since allocated SAWA a half-day slot. The programme below compresses the same activities into four hours. We'll confirm the day, room, and whether it's a morning or afternoon slot once the ISWC 2026 schedule is finalised.</p>
-      <table class="schedule">
-        <caption>Provisional half-day schedule (afternoon slot shown)</caption>
-        <thead>
-          <tr><th scope="col">Time</th><th scope="col">Session</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>13:30&ndash;13:50</td><td>Welcome and framing the session</td></tr>
-          <tr><td>13:50&ndash;14:30</td><td>Lightning talks: position statements</td></tr>
-          <tr><td>14:30&ndash;15:30</td><td>Thematic breakout sessions</td></tr>
-          <tr><td>15:30&ndash;16:00</td><td>Coffee break</td></tr>
-          <tr><td>16:00&ndash;16:45</td><td>Plenary feedback and cross-group synthesis</td></tr>
-          <tr><td>16:45&ndash;17:30</td><td>Closing plenary: open problems, research agenda, and roadmapping</td></tr>
-        </tbody>
-      </table>
-      <p class="logistics">Times shown assume an afternoon slot, in line with recent ISWC discussion-format workshops; they'll shift by the same margins if SAWA runs in the morning instead. We'll need a projector and screen, plus a board, or a tablet we can project, for live drafting during the closing session.</p>
-    </div>
-  </section>
-
-  <section id="submit">
-    <div class="wrap prose">
-      <h2>Submission and participation</h2>
-      <p>We invite short position statements, up to two pages, on any of the topics above. These will be circulated to registered participants ahead of the workshop, so discussion on the day can start from a shared footing rather than a round of introductions.</p>
-      <p>You're also welcome to submit a short summary of published or unpublished work relevant to the workshop's themes. We're not asking for original unpublished research: SAWA is a discussion-led workshop, not a paper track, and submissions will be lightly reviewed for relevance and interest rather than technical novelty.</p>
-      <p>We're aiming for a group of 20 to 30 participants: a mix of senior researchers, early-career researchers, and practitioners building agentic systems in industry, with diversity of career stage, institution, and country a priority. Participation is open to all ISWC 2026 attendees; presenting authors should register for both the workshop and the conference.</p>
-      <div class="key-dates">
-        <dl>
-          <dt>Position statement deadline</dt><dd class="tbc">To be announced</dd>
-          <dt>Notification</dt><dd class="tbc">Rolling (proposed)</dd>
-          <dt>Submission link</dt><dd class="tbc">EasyChair, to be added</dd>
-          <dt>Workshop</dt><dd>Half day &middot; 25&ndash;26 October 2026 &middot; day to be confirmed</dd>
-        </dl>
-      </div>
-    </div>
-  </section>
-
-  <section id="organizers" class="tinted">
+  <section id="challenges" class="tinted">
     <div class="wrap">
-      <h2>Organizers</h2>
+      <h2>Challenges</h2>
+      <p class="lead">Four questions will drive the morning. They also set the scope for lightning talks.</p>
+      <div class="box-grid">
+
+        <article class="box">
+          <h3>What should an agent be told about a capability?</h3>
+          <p>Formal descriptions such as OWL-S profiles and WSMO capabilities set out a service's inputs and outputs along with its preconditions and effects. Current agent protocols mostly pair natural-language descriptions with structured typing of inputs and outputs. What does formal grounding buy, and what does it cost to author? And how could anyone check that a capability does what its description says?</p>
+        </article>
+
+        <article class="box">
+          <h3>How should agents discover what they can do here and now?</h3>
+          <p>An affordance is what an agent can do given its current state and the environment it is in, which a static service description cannot express. How do discovery and goal decomposition change when capabilities depend on context?</p>
+        </article>
+
+        <article class="box">
+          <h3>Where should agreement on meaning happen?</h3>
+          <p>Agents with different ontological commitments still have to understand one another. Should agreement come in advance, through shared ontologies, or at runtime, through alignment and mediation, perhaps with LLMs doing part of the mediating? And what may an agent assume about what a knowledge graph leaves unsaid?</p>
+        </article>
+
+        <article class="box">
+          <h3>What would make semantics adoptable this time, and how would we know it works?</h3>
+          <p>If the effort of authoring formal descriptions held earlier approaches back, what would a lighter route look like alongside protocols such as MCP and A2A, perhaps with LLMs helping to write and maintain the descriptions? Which benchmarks and testbeds would show that it helps?</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="programme">
+    <div class="wrap">
+      <h2>Programme</h2>
+      <p class="lead">Dagstuhl seminars are multi-day, discussion-led meetings. A Barstuhl brings that spirit to a single morning in Bari, with less presenting and more talking. Monday 26 October 2026.</p>
+
+      <div class="timebar" aria-hidden="true">
+        <div class="seg seg-welcome" style="flex:15">Welcome</div>
+        <div class="seg seg-talks" style="flex:45">Lightning talks</div>
+        <div class="seg seg-disc" style="flex:40">Discussion 1</div>
+        <div class="seg seg-break" style="flex:30">Coffee</div>
+        <div class="seg seg-disc" style="flex:45">Discussion 2</div>
+        <div class="seg seg-synth" style="flex:35">Synthesis</div>
+        <div class="seg seg-close" style="flex:20">Closing</div>
+      </div>
+
+      <!-- The two discussion sessions are planned as fishbowls. Confirm the room layout
+           (movable chairs) with the ISWC local organisers before naming the format publicly. -->
+      <div class="table-wrap">
+        <table class="schedule">
+          <thead>
+            <tr><th scope="col">Time</th><th scope="col">Session</th><th scope="col">What happens</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>09:00&ndash;09:15</td><td>Welcome and framing</td><td>The question, the four challenges, and how the morning will run.</td></tr>
+            <tr><td>09:15&ndash;10:00</td><td>Lightning talks</td><td>Position statements from the room, each three minutes and one slide.</td></tr>
+            <!-- If invited provocations are confirmed, add them to the Lightning talks row above. -->
+            <tr><td>10:00&ndash;10:40</td><td>Discussion 1</td><td>What do formal capability descriptions buy, and what would make them adoptable this time?</td></tr>
+            <tr><td>10:40&ndash;11:10</td><td>Coffee break</td><td></td></tr>
+            <tr><td>11:10&ndash;11:55</td><td>Discussion 2</td><td>How should agents discover what they can do in context, and where should agreement on meaning happen?</td></tr>
+            <tr><td>11:55&ndash;12:30</td><td>Synthesis</td><td>Everyone clusters what was captured in the room and votes on the open problems that matter most.</td></tr>
+            <tr><td>12:30&ndash;12:50</td><td>Closing</td><td>Read out the priorities, agree who drafts the research agenda, and gather volunteers for a Dagstuhl proposal.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="participate" class="tinted">
+    <div class="wrap">
+      <h2>Take part</h2>
+      <div class="two-col">
+        <div>
+          <h3>Give a lightning talk</h3>
+          <p>A lightning talk is three minutes and one slide, and it states a position you want the room to argue about. Send a title, an abstract of up to 150 words and a one-sentence position through the proposal form. We will confirm talks as proposals arrive and publish the final programme by Thursday 22 October.</p>
+          <div class="form-box">
+            <p><strong>Proposals close on Wednesday 21 October.</strong></p>
+            <!-- TODO: replace href="#" with the Google Form link, and remove the "tbc" line below. -->
+            <p class="tbc">The form link will appear here.</p>
+            <a class="btn btn-primary" href="#">Open the proposal form</a>
+          </div>
+
+          <h3>Join the discussion</h3>
+          <p>You do not need to give a talk to take part. The discussion works best in a full room, so come along and contribute. The workshop is held in person and is open to everyone attending ISWC 2026. Registration is through the <a href="https://iswc2026.semanticweb.org/">ISWC 2026 website</a>.</p>
+        </div>
+
+        <div>
+          <div class="key-dates">
+            <h3>Key dates</h3>
+            <dl>
+              <dt>Proposals close</dt><dd>Wednesday 21 October 2026</dd>
+              <dt>Final programme</dt><dd>Thursday 22 October 2026</dd>
+              <dt>Workshop</dt><dd>Monday 26 October 2026, 09:00 to 12:50</dd>
+            </dl>
+          </div>
+          <h3>Who should come</h3>
+          <p>Researchers working on Semantic Web Services, multi-agent systems, knowledge graphs or agentic AI will find the most to argue about, and so will practitioners building agentic systems in industry. Early-career researchers are especially welcome. We are aiming for a room of 20 to 30 people with a mix of career stages, institutions and countries.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="results">
+    <div class="wrap">
+      <h2>Expected results</h2>
+      <p class="lead">A morning is long enough to set priorities and too short to write a research agenda, so we have split the results into what we will have by lunchtime and what follows.</p>
+      <div class="box-grid">
+        <div class="box">
+          <h3>By 12:50</h3>
+          <p class="result"><strong>A prioritised list of open problems.</strong> Clustered from the two discussions and voted on by everyone in the room.</p>
+          <p class="result"><strong>A drafting team.</strong> Named volunteers who will write up the research agenda.</p>
+          <p class="result"><strong>A first circle for a Dagstuhl proposal.</strong> The people who want to help shape a follow-up Dagstuhl seminar.</p>
+        </div>
+        <div class="box ochre">
+          <h3>Afterwards</h3>
+          <p class="result"><strong>A draft research agenda.</strong> Published openly with a DOI, with contributing participants invited as co-authors. Target date: <span class="tbc">to be confirmed</span>.</p>
+          <p class="result"><strong>A draft Dagstuhl seminar proposal.</strong> Developed from the agenda.</p>
+          <p class="result"><strong>A place to continue.</strong> The W3C WebAgents Community Group is a natural home for the conversation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="organisers" class="tinted">
+    <div class="wrap">
+      <h2>Organisers</h2>
       <div class="org-grid">
         <div class="org-card">
-          <h3>Terry R. Payne</h3>
-          <p class="org-affil">University of Liverpool, UK</p>
-          <p>Over 30 years of research in agent-based computing, knowledge-based systems, and ontology-driven service discovery. A founding member of the OWL-S coalition, he helped develop the formal capability description framework for Semantic Web Services. His recent work with Valentina Tamma and Enrico Daga proposes the Agentic Affordance Profile, revisiting OWL-S and WSMO insights for knowledge graph settings.</p>
-          <div class="org-links">
-            <a href="https://www.liverpool.ac.uk/people/terry-payne">Homepage</a>
-            <a href="mailto:T.R.Payne@liverpool.ac.uk">Email</a>
+          <div class="avatar"><span aria-hidden="true">TP</span><img src="images/terry-payne.jpg" alt=""></div>
+          <div>
+            <h3>Terry R. Payne</h3>
+            <p class="org-affil">University of Liverpool, UK</p>
+            <p>A founding member of the OWL-S coalition, he helped develop the formal capability description framework for Semantic Web Services. His recent work with Valentina Tamma and Enrico Daga proposes the Agentic Affordance Profile, which revisits OWL-S and WSMO for knowledge graphs.</p>
+            <div class="org-links">
+              <a href="https://www.liverpool.ac.uk/people/terry-payne">Homepage</a>
+              <a href="mailto:T.R.Payne@liverpool.ac.uk">Email</a>
+            </div>
           </div>
         </div>
         <div class="org-card">
-          <h3>Andrei Ciortea</h3>
-          <p class="org-affil">University of St. Gallen, Switzerland</p>
-          <p>Assistant Professor for Web-based Systems at the School of Computer Science. His research focuses on multi-agent systems for the Web, hypermedia-driven systems, and the Web of Things, with applications in industrial manufacturing and building automation. He co-chairs the W3C WebAgents Community Group and has organised two Dagstuhl Seminars on Agents on the Web.</p>
-          <div class="org-links">
-            <a href="https://andreiciortea.ro/">Homepage</a>
-            <a href="mailto:andrei.ciortea@unisg.ch">Email</a>
+          <div class="avatar"><span aria-hidden="true">AC</span><img src="images/andrei-ciortea.jpg" alt=""></div>
+          <div>
+            <h3>Andrei Ciortea</h3>
+            <p class="org-affil">University of St. Gallen, Switzerland</p>
+            <p>Works on multi-agent systems for the Web and the Web of Things. His work on hypermedia affordances has formalised how agents discover and invoke capabilities through self-describing Web APIs. He co-chairs the W3C WebAgents Community Group.</p>
+            <div class="org-links">
+              <a href="https://andreiciortea.ro/">Homepage</a>
+              <a href="mailto:andrei.ciortea@unisg.ch">Email</a>
+            </div>
           </div>
         </div>
         <div class="org-card">
-          <h3>Axel Polleres</h3>
-          <p class="org-affil">WU Wien, Austria</p>
-          <p>Full Professor and Deputy Head of the Department of Information Systems and Operations Management at WU Wien, where he leads the Data Management group. His research spans knowledge representation, ontology querying and reasoning, Semantic Web technologies, and Linked Open Data. He co-chaired the W3C SPARQL Working Group and initiated the W3C Data Privacy Vocabularies and Controls Community Group.</p>
-          <div class="org-links">
-            <a href="http://www.polleres.net">Homepage</a>
-            <a href="mailto:axel.polleres@wu.ac.at">Email</a>
+          <div class="avatar"><span aria-hidden="true">AP</span><img src="images/axel-polleres.jpg" alt=""></div>
+          <div>
+            <h3>Axel Polleres</h3>
+            <p class="org-affil">WU Wien, Austria</p>
+            <p>A co-author of the Web Service Modeling Ontology (WSMO) for Semantic Web Services. His paper <em>On the Historic Roots of Agentic AI in Semantic Web Services</em> (ACM Web Conference 2026) provides much of the motivation for this workshop.</p>
+            <div class="org-links">
+              <a href="http://www.polleres.net">Homepage</a>
+              <a href="mailto:axel.polleres@wu.ac.at">Email</a>
+            </div>
           </div>
         </div>
         <div class="org-card">
-          <h3>Ilaria Tiddi</h3>
-          <p class="org-affil">Vrije Universiteit Amsterdam, Netherlands</p>
-          <p>Assistant Professor in Hybrid Intelligence at the Knowledge in AI group. Her research focuses on ontology-driven affordance reasoning for embodied agents, and on how structured knowledge mediates between human intent and autonomous agent behaviour. She serves on the organising committees of ISWC, ESWC, EKAW, K-CAP, and HHAI, and has been Editor-in-Chief of CEUR Workshop Proceedings since 2021.</p>
-          <div class="org-links">
-            <a href="https://kmitd.github.io/ilaria/">Homepage</a>
-            <a href="mailto:i.tiddi@vu.nl">Email</a>
+          <div class="avatar"><span aria-hidden="true">IT</span><img src="images/ilaria-tiddi.jpg" alt=""></div>
+          <div>
+            <h3>Ilaria Tiddi</h3>
+            <p class="org-affil">Vrije Universiteit Amsterdam, Netherlands</p>
+            <p>Her research covers ontology-driven affordance reasoning for embodied agents, and how structured knowledge mediates between human intent and autonomous agent behaviour.</p>
+            <div class="org-links">
+              <a href="https://kmitd.github.io/ilaria/">Homepage</a>
+              <a href="mailto:i.tiddi@vu.nl">Email</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section id="outcomes">
-    <div class="wrap prose">
-      <h2>Expected outcomes</h2>
-      <p class="outcome"><strong>Shared research agenda.</strong> A prioritised list of open agentic AI challenges where Semantic Web Services, knowledge graph, and Multi-Agent Systems research can contribute, alongside the opportunities semantically grounded agentic AI offers in return.</p>
-      <p class="outcome"><strong>Community building.</strong> A starting point for a research network spanning semantic, autonomous, and interoperable agentic systems, drawing on the W3C WebAgents Community Group, the Semantic Web Science Association, and researchers building agentic AI infrastructure.</p>
-      <p class="outcome"><strong>Dagstuhl proposal.</strong> A draft proposal for a follow-up Dagstuhl Seminar, where the discussions from the workshop can be developed further into a structured research agenda.</p>
     </div>
   </section>
 
@@ -460,8 +529,8 @@
 
 <footer>
   <div class="wrap">
-    <p class="chairs">Workshop chairs: Terry R. Payne, Andrei Ciortea, Axel Polleres, and Ilaria Tiddi.</p>
-    <p>Part of <a href="https://iswc2026.semanticweb.org/">ISWC 2026</a>, Bari, Italy, 25&ndash;29 October 2026. &copy; 2026 SAWA workshop organizers.</p>
+    <p>Questions? Write to any of the organisers, or to Terry R. Payne at <a href="mailto:T.R.Payne@liverpool.ac.uk">T.R.Payne@liverpool.ac.uk</a>.</p>
+    <p>Part of <a href="https://iswc2026.semanticweb.org/">ISWC 2026</a>, Bari, Italy, 25&ndash;29 October 2026. &copy; 2026 SAWA workshop organisers.</p>
   </div>
 </footer>
 
