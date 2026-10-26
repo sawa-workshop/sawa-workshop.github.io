@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SAWA 2026: Semantic Affordances for the Web of Agents</title>
-<meta name="description" content="SAWA is a half-day, Dagstuhl-style Barstuhl workshop at ISWC 2026 in Bari, bringing the Multi-Agent Systems, Semantic Web Services, and Agentic AI communities together around affordance-based approaches to agent and service discovery.">
+<meta name="description" content="SAWA was a half-day, Dagstuhl-style Barstuhl workshop at ISWC 2026 in Bari, bringing the Multi-Agent Systems, Semantic Web Services, and Agentic AI communities together around affordance-based approaches to agent and service discovery. Join the community to stay in touch.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="SAWA 2026: Semantic Affordances for the Web of Agents">
-<meta property="og:description" content="A half-day Barstuhl workshop at ISWC 2026, Monday 26 October, Bari. Lightning talk proposals close Thursday 22 October.">
+<meta property="og:description" content="A half-day Barstuhl workshop held at ISWC 2026 in Bari on 26 October. Join the SAWA community to stay in touch about what comes next.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='14' fill='%232C4372'/%3E%3Ccircle cx='18' cy='20' r='9' fill='%2396691E'/%3E%3Ccircle cx='82' cy='20' r='9' fill='%2396691E'/%3E%3Ccircle cx='18' cy='80' r='9' fill='%2396691E'/%3E%3Ccircle cx='82' cy='80' r='9' fill='%2396691E'/%3E%3Cline x1='50' y1='50' x2='18' y2='20' stroke='%232C4372' stroke-width='3'/%3E%3Cline x1='50' y1='50' x2='82' y2='20' stroke='%232C4372' stroke-width='3'/%3E%3Cline x1='50' y1='50' x2='18' y2='80' stroke='%232C4372' stroke-width='3'/%3E%3Cline x1='50' y1='50' x2='82' y2='80' stroke='%232C4372' stroke-width='3'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -163,6 +163,8 @@
     padding:1.4rem 1.4rem 1.2rem;
   }
   .box.ochre{ border-top-color:var(--ochre); }
+  .box-grid.three{ grid-template-columns:repeat(3,1fr); }
+  @media (max-width:820px){ .box-grid.three{ grid-template-columns:1fr; } }
   .box h3{ font-size:1.2rem; margin-bottom:0.5em; }
   .box p{ font-size:0.97rem; margin-bottom:0.9em; }
   .box p:last-child{ margin-bottom:0; }
@@ -175,7 +177,8 @@
     border-radius:6px;
   }
   .seg-welcome{ background:var(--ink-soft); }
-  .seg-talks{ background:var(--ochre); }
+  .seg-invited{ background:var(--ochre); }
+  .seg-talks{ background:var(--ochre-soft); color:#2A2013; }
   .seg-disc{ background:var(--indigo); }
   .seg-break{ background:var(--surface-tint); color:var(--ink); border:1px solid var(--rule); }
   .seg-synth{ background:var(--indigo-dark); }
@@ -209,12 +212,13 @@
   }
   .form-box p{ margin-bottom:0.8em; }
   .tbc{ font-style:italic; color:var(--ink-soft); }
-  .key-dates{ background:var(--surface); border:1px solid var(--rule); border-radius:var(--radius); padding:1.2rem 1.4rem; margin-bottom:1.6rem; }
-  .key-dates h3{ font-size:1.05rem; }
-  .key-dates dl{ margin:0; display:grid; gap:0.2em; }
-  .key-dates dt{ font-weight:600; margin-top:0.7em; }
-  .key-dates dt:first-child{ margin-top:0; }
-  .key-dates dd{ margin:0; color:var(--ink-soft); }
+  .info-box{ background:var(--surface); border:1px solid var(--rule); border-radius:var(--radius); padding:1.2rem 1.4rem; margin-bottom:1.6rem; }
+  .info-box h3{ font-size:1.05rem; }
+  .info-box p{ margin:0; font-size:0.96rem; }
+  .info-box dl{ margin:0; display:grid; gap:0.2em; }
+  .info-box dt{ font-weight:600; margin-top:0.7em; }
+  .info-box dt:first-child{ margin-top:0; }
+  .info-box dd{ margin:0; color:var(--ink-soft); }
 
   /* Results */
   .result{ margin-bottom:0.9em; }
@@ -269,8 +273,8 @@
       <a href="#about">About</a>
       <a href="#challenges">Challenges</a>
       <a href="#programme">Programme</a>
-      <a href="#participate">Take part</a>
-      <a href="#results">Results</a>
+      <a href="#community">Stay in touch</a>
+      <a href="#next">Next steps</a>
       <a href="#organisers">Organisers</a>
     </nav>
   </div>
@@ -284,13 +288,10 @@
       <div>
         <h1>SAWA</h1>
         <p class="subtitle">Semantic Affordances for the Web of Agents: bridging Multi-Agent Systems, Semantic Web Services, and Agentic AI</p>
-        <p class="meta">A half-day, Dagstuhl-style Barstuhl workshop at ISWC 2026. Monday 26 October 2026, 09:00 to 12:50, in the Andromeda room at The Nicolaus Hotel, Bari, Italy.</p>
-        <p class="notice">
-          <span data-when="open"><strong>Lightning talk proposals close on Thursday 22 October (23:59 AoE).</strong> Get involved; propose a title, a short abstract and one sentence on your position, not a paper.</span>
-          <span data-when="closed" hidden><strong>Lightning talk proposals are now closed.</strong> It is still possible to attend. Just turn up on Monday 26 October at 09:00.</span>
-        </p>
+        <p class="meta">A half-day, Dagstuhl-style Barstuhl workshop held at ISWC 2026 on Monday 26 October 2026, 09:00 to 12:50, in the Andromeda room at The Nicolaus Hotel, Bari, Italy.</p>
+        <p class="notice"><strong>Thank you to everyone who joined us in Bari.</strong> Join the SAWA community to stay in touch about what comes next.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#participate"><span data-when="open">Propose a lightning talk</span><span data-when="closed" hidden>How to take part</span></a>
+          <a class="btn btn-primary" href="https://forms.gle/QgeAf5m5AZuqEXvU8">Join the SAWA community</a>
           <a class="btn btn-outline" href="#programme">See the programme</a>
         </div>
       </div>
@@ -354,7 +355,7 @@
   <section id="challenges" class="tinted">
     <div class="wrap">
       <h2>Challenges</h2>
-      <p class="lead">Four questions will drive the morning. They also set the scope for lightning talks.</p>
+      <p class="lead">Four questions drove the morning, and they will shape what comes next.</p>
       <div class="box-grid">
 
         <article class="box">
@@ -384,34 +385,31 @@
   <section id="programme">
     <div class="wrap">
       <h2>Programme</h2>
-      <p class="lead">Dagstuhl seminars are multi-day, discussion-led meetings. A Barstuhl brings that spirit to a single morning in Bari, with less presenting and more talking. Monday 26 October 2026.</p>
+      <p class="lead">Dagstuhl seminars are multi-day, discussion-led meetings. A Barstuhl brought that spirit to a single morning in Bari, with less presenting and more talking. Monday 26 October 2026.</p>
 
       <div class="timebar" aria-hidden="true">
         <div class="seg seg-welcome" style="flex:15">Welcome</div>
-        <div class="seg seg-talks" style="flex:45">Lightning talks</div>
-        <div class="seg seg-disc" style="flex:40">Discussion 1</div>
+        <div class="seg seg-invited" style="flex:30">Invited positions</div>
+        <div class="seg seg-talks" style="flex:25">Lightning talks</div>
+        <div class="seg seg-disc" style="flex:30">Discussion 1</div>
         <div class="seg seg-break" style="flex:30">Coffee</div>
         <div class="seg seg-disc" style="flex:45">Discussion 2</div>
         <div class="seg seg-synth" style="flex:35">Synthesis</div>
         <div class="seg seg-close" style="flex:20">Closing</div>
       </div>
 
-      <!-- The two discussion sessions are planned as fishbowls. Confirm the room layout
-           (movable chairs) with the ISWC local organisers before naming the format publicly. -->
-      <div class="table-wrap">
+            <div class="table-wrap">
         <table class="schedule">
           <thead>
             <tr><th scope="col">Time</th><th scope="col">Session</th><th scope="col">Description</th></tr>
           </thead>
           <tbody>
             <tr><td>09:00&ndash;09:15</td><td>Welcome and framing - Axel Polleres</td><td>The question, the four challenges, and how the morning will run.</td></tr>
-            <tr><td>09:15&ndash;09:25</td><td>Jim Hendler</td><td>Invited Position: <B>What is an agent?</B> <I>This talk asks what we really mean by agent - and what is needed in our systems to make them truly “agentic.”</I>.</td></tr>
-            <tr><td>09:25&ndash;09:35</td><td>John Domingue</td><td>Invited Position: <B>Back to the Future: What WSMO Can Teach Agentic AI</B> <I>Twenty years ago, the Web Services Modelling Ontology (WSMO) tackled a challenge that feels remarkably familiar today: how can autonomous software components discover one another, understand what they can do, and work together to achieve a goal? WSMO introduced explicit models of Goals, Services, Ontologies and Mediators, alongside support for discovery, orchestration and choreography. This talk revisits these ideas through the lens of LLM-based agents and asks a simple question: what can Agentic AI learn from Semantic Web Services, and what needs to change for the age of LLMs?
-</I>.</td></tr>
-            <tr><td>09:35&ndash;09:45</td><td>Terry Payne</td><td>Discoverable Agent Knowledge — A Formal Framework for Agentic KG Affordances.</td></tr>
+            <tr><td>09:15&ndash;09:25</td><td>Jim Hendler</td><td>Invited Position: <strong>What is an agent?</strong> <em>This talk asks what we really mean by agent - and what is needed in our systems to make them truly “agentic.”</em></td></tr>
+            <tr><td>09:25&ndash;09:35</td><td>John Domingue</td><td>Invited Position: <strong>Back to the Future: What WSMO Can Teach Agentic AI</strong> <em>Twenty years ago, the Web Services Modelling Ontology (WSMO) tackled a challenge that feels remarkably familiar today: how can autonomous software components discover one another, understand what they can do, and work together to achieve a goal? WSMO introduced explicit models of Goals, Services, Ontologies and Mediators, alongside support for discovery, orchestration and choreography. This talk revisits these ideas through the lens of LLM-based agents and asks a simple question: what can Agentic AI learn from Semantic Web Services, and what needs to change for the age of LLMs?</em></td></tr>
+            <tr><td>09:35&ndash;09:45</td><td>Terry Payne</td><td>Invited Position: <strong>Discoverable Agent Knowledge: A Formal Framework for Agentic KG Affordances.</strong></strong></td></tr>
             <tr><td>09:45&ndash;10:10</td><td>Lightning talks</td><td>Position statements from the room, each three minutes and one slide.</td></tr>
-            <!-- If invited provocations are confirmed, add them to the Lightning talks row above. -->
-            <tr><td>10:10&ndash;10:40</td><td>Discussion 1</td><td>What do formal capability descriptions buy, and what would make them adoptable this time?</td></tr>
+                        <tr><td>10:10&ndash;10:40</td><td>Discussion 1</td><td>What do formal capability descriptions buy, and what would make them adoptable this time?</td></tr>
             <tr><td>10:40&ndash;11:10</td><td>Coffee break</td><td></td></tr>
             <tr><td>11:10&ndash;11:55</td><td>Discussion 2</td><td>How should agents discover what they can do in context, and where should agreement on meaning happen?</td></tr>
             <tr><td>11:55&ndash;12:30</td><td>Synthesis</td><td>Everyone clusters what was captured in the room and votes on the open problems that matter most.</td></tr>
@@ -422,58 +420,45 @@
     </div>
   </section>
 
-  <section id="participate" class="tinted">
+  <section id="community" class="tinted">
     <div class="wrap">
-      <h2>Take part</h2>
+      <h2>Stay in touch</h2>
       <div class="two-col">
         <div>
-          <h3>Give a lightning talk</h3>
-          <p data-when="open">A lightning talk is three minutes and one slide, and it states a position you want the room to argue about. Send a title, an abstract of up to 150 words and a one-sentence position through the proposal form. We will confirm talks as proposals arrive and publish the final programme by Sunday 25 October.</p>
-          <p data-when="closed" hidden>Lightning talk proposals have now closed, and we are grateful to everyone who sent one. A lightning talk is three minutes and one slide, and it states a position for the room to argue about.</p>
+          <h3>Join the SAWA community</h3>
+          <p>If you were with us in Bari, or could not make it but share the interest, you can register your interest and join the SAWA mailing list. We will occasionally email you about follow-up activities, such as the research agenda and any future events, and we may invite you to help with them.</p>
           <div class="form-box">
-            <div data-when="open">
-              <p><strong>Proposals close on Thursday 22 October (23:59 AoE).</strong></p>
-              <a class="btn btn-primary" href="https://forms.gle/1RPhhvreyT384BnL7">Open the proposal form</a>
-            </div>
-            <p data-when="closed" hidden><strong>The proposal form has now closed.</strong> You can still attend. Just turn up on Monday 26 October at 09:00.</p>
+            <a class="btn btn-primary" href="https://forms.gle/QgeAf5m5AZuqEXvU8">Join the SAWA community</a>
           </div>
-
-          <h3>Join the discussion</h3>
-          <p>You do not need to give a talk to take part. The discussion works best in a full room, so come along and contribute. The workshop is held in person and is open to everyone attending ISWC 2026. Registration is through the <a href="https://iswc2026.semanticweb.org/">ISWC 2026 website</a>.</p>
+          <h3>Who should join</h3>
+          <p>Researchers working on Semantic Web Services, multi-agent systems, knowledge graphs or agentic AI will find the most to argue about, and so will practitioners building agentic systems in industry. Early-career researchers are especially welcome.</p>
         </div>
-
         <div>
-          <div class="key-dates">
-            <h3>Key dates</h3>
-            <dl>
-              <dt>Proposals close</dt><dd>Thursday 22 October 2026, 23:59 AoE</dd>
-              <dt>Final programme</dt><dd>Sunday 25 October 2026</dd>
-              <dt>Workshop</dt><dd>Monday 26 October 2026, 09:00 to 12:50</dd>
-            </dl>
+          <div class="info-box">
+            <h3>Your details</h3>
+            <p>The form asks for your name, your email address and, if you wish, your institution, and it asks for your consent. Your details are held by Terry Payne at the University of Liverpool and are not shared with anyone else unless you tick a second, optional box. You can withdraw at any time by emailing <a href="mailto:sawaworkshop2026@gmail.com">sawaworkshop2026@gmail.com</a>. The full privacy information is on the form.</p>
           </div>
-          <h3>Who should come</h3>
-          <p>Researchers working on Semantic Web Services, multi-agent systems, knowledge graphs or agentic AI will find the most to argue about, and so will practitioners building agentic systems in industry. Early-career researchers are especially welcome. We are aiming for a room of 20 to 30 people with a mix of career stages, institutions and countries.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="results">
+  <section id="next">
     <div class="wrap">
-      <h2>Expected results</h2>
-      <p class="lead">A morning is long enough to set priorities and too short to write a research agenda, so we have split the results into what we will have by lunchtime and what follows.</p>
-      <div class="box-grid">
+      <h2>Next steps</h2>
+      <p class="lead">A morning is long enough to set priorities and too short to write a research agenda, so the work continues afterwards.</p>
+      <div class="box-grid three">
         <div class="box">
-          <h3>By 12:50</h3>
-          <p class="result"><strong>A prioritised list of open problems.</strong> Clustered from the two discussions and voted on by everyone in the room.</p>
-          <p class="result"><strong>A drafting team.</strong> Named volunteers who will write up the research agenda.</p>
-          <p class="result"><strong>A first circle for a Dagstuhl proposal.</strong> The people who want to help shape a follow-up Dagstuhl seminar.</p>
+          <h3>A draft research agenda</h3>
+          <p class="result">Published openly with a DOI, with contributing participants invited as co-authors. Target date: end of January 2027.</p>
         </div>
-        <div class="box ochre">
-          <h3>Afterwards</h3>
-          <p class="result"><strong>A draft research agenda.</strong> Published openly with a DOI, with contributing participants invited as co-authors. Target date: end of January 2027.</p>
-          <p class="result"><strong>A draft Dagstuhl seminar proposal.</strong> Developed from the agenda.</p>
-          <p class="result"><strong>A place to continue.</strong> The W3C WebAgents Community Group is a natural home for the conversation.</p>
+        <div class="box">
+          <h3>A draft Dagstuhl seminar proposal</h3>
+          <p class="result">Developed from the agenda.</p>
+        </div>
+        <div class="box">
+          <h3>A place to continue</h3>
+          <p class="result">Members of the SAWA mailing list will hear about progress first. The W3C WebAgents Community Group is a natural home for the wider conversation.</p>
         </div>
       </div>
     </div>
@@ -540,22 +525,9 @@
 <footer>
   <div class="wrap">
     <p>Questions? Write to <a href="mailto:sawaworkshop2026@gmail.com">sawaworkshop2026@gmail.com</a>.</p>
-    <p>Part of <a href="https://iswc2026.semanticweb.org/">ISWC 2026</a>, Bari, Italy, 25&ndash;29 October 2026. &copy; 2026 SAWA workshop organisers.</p>
+    <p>SAWA was part of <a href="https://iswc2026.semanticweb.org/">ISWC 2026</a>, Bari, Italy, 25&ndash;29 October 2026. &copy; 2026 SAWA workshop organisers.</p>
   </div>
 </footer>
 
-<script>
-  /* After the deadline (23:59 Anywhere on Earth on 22 October 2026, which is 11:59 UTC on 23 October)
-     the page switches itself to the "closed" wording. No upload is needed on the day. */
-  (function () {
-    var deadline = new Date('2026-10-23T11:59:59Z').getTime();
-    if (Date.now() > deadline) {
-      var open = document.querySelectorAll('[data-when="open"]');
-      var closed = document.querySelectorAll('[data-when="closed"]');
-      for (var i = 0; i < open.length; i++) open[i].hidden = true;
-      for (var j = 0; j < closed.length; j++) closed[j].hidden = false;
-    }
-  })();
-</script>
 </body>
 </html>
